@@ -1,0 +1,97 @@
+Partie 1
+
+1/
+mkdir TP2 - CATAN - Marvin
+cd TP2 - CATAN - Marvin
+git init
+git status
+
+2/
+echo "# TP2 : Gestion des branches" > README.md
+git add README.md
+git commit -m "Initialisation avec README.md"
+git branch -m develop
+
+Partie 2
+
+3/
+git switch -c feature1
+echo "Ceci est une description du projet" >> README.md
+git add README.md
+git commit -m "Ajout de la description du projet (feature1)"
+
+4/
+git switch develop
+nano README.md
+git add README.md
+git commit -m "Ajout d'une modification sur develop avant le merge"
+git merge feature1
+// resolution des conflits
+git add README.md
+git commit
+
+5/
+git switch develop
+git switch -c feature2
+echo "# TP2 - NomPrenom - Gestion des branches" > README.md
+git add README.md
+git commit -m "Modification du titre du README.md (feature2)"
+
+6/
+git switch develop
+git switch -c feature3
+echo "TP2 - Gestion des branches et fusions" > README.md
+git add README.md
+git commit -m "Modification du titre pour inclure 'et fusions' (feature3)"
+
+7/
+git switch develop
+git merge feature2
+git merge feature3
+// Résolutions des conflits en gardant le titre de feature3
+git add README.md
+git commit
+
+Partie 3
+1/
+git switch develop
+git switch -c feature4
+echo "Cette phrase concerne la partie rebase du TP2." >> README.md
+nano README.md
+git add README.md
+git commit -m "Ajout dans README.md - partie rebase"
+
+2/
+echo "(feature4)" >> README.md
+git add README.md
+git commit -m "Ajout dans README.md - mention feature4"
+
+3/
+echo "Fin des modifications de la feature f4" >> README.md
+git add README.md
+git commit -m "Ajout dans README.md - dernière ligne feature4"
+
+4/
+git log --oneline
+git rebase -i HEAD~2
+
+5/
+git switch develop
+echo "TP2 - Branches, merge et rebase - NomPrenom" > README.md
+git add README.md
+git commit -m "Modification du titre du README.md (develop)"
+git push -u origin develop
+
+6/
+git rebase feature4
+// Résolution desconflits : garder les modifs de feature4 + titre develop
+git add README.md
+git rebase --continue
+
+7/
+Merge : permet de fusionner deux branches en conservant leurs historiques respectifs. Utile pour intégrer des fonctionnalités sans modifier l’historique.
+
+8/
+Rebase : permet de réappliquer des commits sur une autre branche, créant un historique linéaire. Utile pour une histoire propre et lisible.
+
+
