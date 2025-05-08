@@ -1,1 +1,1 @@
-# TP2 - CATAN Marvin - Gestion des branches
+TP2 - Gestion des branches et fusions
